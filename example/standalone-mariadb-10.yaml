@@ -11,8 +11,7 @@ services:
       - "8848:8848"
       - "9848:9848"
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
     restart: on-failure:3
   mysql:
     container_name: mariadb
@@ -25,10 +24,5 @@ services:
       - ./mysql:/var/lib/mysql
     ports:
       - "3306:3306"
-    healthcheck:
-      test: ["CMD", "mysql", "-u", "root", "-p", "root@1234", "-e", "SHOW DATABASES"]
-      interval: 5s
-      timeout: 10s
-      retries: 10
     restart: unless-stopped
 
