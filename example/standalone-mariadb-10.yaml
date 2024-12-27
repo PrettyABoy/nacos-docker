@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 services:
   nacos:
     image: nacos/nacos-server:${NACOS_VERSION}
@@ -17,8 +17,7 @@ services:
   mysql:
     container_name: mariadb
     build:
-      context: ./image/mariadb/10
-      dockerfile: ./image/mariadb/10/Dockerfile
+      context: ./image/mariadb/10/
     image: nacos/mariadb:10
     env_file:
       - ../env/mysql.env
