@@ -17,7 +17,7 @@ services:
   mysql:
     container_name: mariadb
     build:
-      context: .
+      context: ./image/mariadb/10
       dockerfile: ./image/mariadb/10/Dockerfile
     image: nacos/mariadb:10
     env_file:
